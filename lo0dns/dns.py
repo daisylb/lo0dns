@@ -58,7 +58,7 @@ async def get_response(query: Query):
                     ttl=60,
                     payload=Record_AAAA(address=str(ip).encode('ascii')),
                 ))
-    if query.type in (SOA, ALL_RECORDS):
+    if query.type in (SOA, ALL_RECORDS) and name == b'':
         results.append(SOA_OBJ)
     return results
 
