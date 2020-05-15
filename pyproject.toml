@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "proxything"
+name = "lo0dns"
 version = "0.1.0"
 description = ""
 authors = ["Leigh Brenecki <l@leigh.net.au>"]
