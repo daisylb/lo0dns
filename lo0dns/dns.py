@@ -53,9 +53,9 @@ if __name__ == "__main__":
         authorities=[resolver]
     )
 
-    protocol = dns.DNSDatagramProtocol(controller=factory)
 
     for addr in argv[1:]:
+        protocol = dns.DNSDatagramProtocol(controller=factory)
         reactor.listenUDP(53, protocol, interface=addr)
         reactor.listenTCP(53, factory, interface=addr)
 
