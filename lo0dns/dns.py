@@ -45,6 +45,7 @@ async def get_response(query: Query):
 if __name__ == "__main__":
     from twisted.internet import reactor
     from twisted.names import dns, server
+    from sys import argv
 
     resolver = Resolver(get_response)
 
@@ -54,7 +55,8 @@ if __name__ == "__main__":
 
     protocol = dns.DNSDatagramProtocol(controller=factory)
 
-    reactor.listenUDP(53, protocol)
-    reactor.listenTCP(53, factory)
+    for addr in argv[1:]:
+        reactor.listenUDP(53, protocol, interface=addr)
+        reactor.listenTCP(53, factory, interface=addr)
 
     reactor.run()
