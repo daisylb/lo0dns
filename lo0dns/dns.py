@@ -77,7 +77,7 @@ if __name__ == "__main__":
 
     for addr in argv[1:]:
         protocol = dns.DNSDatagramProtocol(controller=factory)
-        reactor.listenUDP(10053, protocol, interface=addr)
-        reactor.listenTCP(10053, factory, interface=addr)
+        reactor.listenUDP(53, protocol, interface=addr)
+        reactor.listenTCP(53, factory, interface=addr)
 
     reactor.run()
