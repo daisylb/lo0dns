@@ -29,6 +29,14 @@ visualize = ["graphviz (>0.5.1)", "Twisted (>=16.1.1)"]
 
 [[package]]
 category = "main"
+description = "Python-bindings for CityHash, a fast non-cryptographic hash algorithm"
+name = "cityhash"
+optional = false
+python-versions = "*"
+version = "0.2.3.post9"
+
+[[package]]
+category = "main"
 description = "Symbolic constants in Python"
 name = "constantly"
 optional = false
@@ -127,7 +135,7 @@ test = ["coverage (>=5.0.3)", "zope.event", "zope.testing"]
 testing = ["coverage (>=5.0.3)", "zope.event", "zope.testing"]
 
 [metadata]
-content-hash = "e12a5434e68fe10d93c62fc870005f02d9071af09cd91eea438664da8cf977e3"
+content-hash = "d6d3f531077ce7abf5bd2f6cc35a9a8c9d28c0b5a1cc04adba4ccf51691288b3"
 python-versions = "^3.8"
 
 [metadata.files]
@@ -138,6 +146,9 @@ attrs = [
 automat = [
     {file = "Automat-20.2.0-py2.py3-none-any.whl", hash = "sha256:b6feb6455337df834f6c9962d6ccf771515b7d939bca142b29c20c2376bc6111"},
     {file = "Automat-20.2.0.tar.gz", hash = "sha256:7979803c74610e11ef0c0d68a2942b152df52da55336e0c9d58daf1831cbdf33"},
+]
+cityhash = [
+    {file = "cityhash-0.2.3.post9.tar.gz", hash = "sha256:aa8919c00e8d8699df42dd788eda4f24ad13086ea9d83407fd7da4a0206d9d18"},
 ]
 constantly = [
     {file = "constantly-15.1.0-py2.py3-none-any.whl", hash = "sha256:dd2fa9d6b1a51a83f0d7dd76293d734046aa176e384bf6e33b7e44880eb37c5d"},
