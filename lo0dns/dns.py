@@ -48,7 +48,7 @@ async def get_response(query: Query):
     results = []
     if query.type in (AAAA, ALL_RECORDS):
         name = name[:-8]
-        vhost, username = name.rsplit(b'.')
+        vhost, username = name.rsplit(b'.', 1)
         vhost_hash = CityHash32(vhost)
         username_hash = CityHash32(username)
         ip = NETWORK[(username_hash << 32) + vhost_hash]
