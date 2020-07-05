@@ -26,7 +26,7 @@ class Resolver:
 SOA_OBJ = RRHeader(
     name='lo0.wtf',
     type=SOA,
-    ttl=60,
+    ttl=86400,
     payload=Record_SOA(
     mname='lo0-ns1.leigh.party',
     rname='l.leigh.net.au',
@@ -44,7 +44,7 @@ async def get_response(query: Query):
         results.append(RRHeader(
                     name=query.name.name,
                     type=AAAA,
-                    ttl=60,
+                    ttl=86400,
                     payload=Record_AAAA(address=str(ip).encode('ascii')),
                 ))
     if query.type in (SOA, ALL_RECORDS) and query.name.name == b'lo0.wtf':
