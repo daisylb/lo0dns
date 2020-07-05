@@ -18,7 +18,7 @@ def domain_to_ip(domain: str):
             break
     else:
         user_part = psl.privatesuffix(domain)
-        service_part = domain[:-len(user_part)]
+        service_part = domain[:-len(user_part) - 1]
     user_hash = CityHash32(user_part.encode('ascii'))
     service_hash = CityHash32(service_part.encode('ascii'))
     return NETWORK[(user_hash << 32) + service_hash]
