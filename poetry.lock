@@ -173,6 +173,18 @@ version = "1.0.1"
 fabric = ">=2.0,<3.0"
 
 [[package]]
+category = "main"
+description = "publicsuffixlist implement"
+name = "publicsuffixlist"
+optional = false
+python-versions = ">=2.6"
+version = "0.7.3"
+
+[package.extras]
+readme = ["pandoc"]
+update = ["requests"]
+
+[[package]]
 category = "dev"
 description = "C parser in Python"
 name = "pycparser"
@@ -258,7 +270,7 @@ test = ["coverage (>=5.0.3)", "zope.event", "zope.testing"]
 testing = ["coverage (>=5.0.3)", "zope.event", "zope.testing"]
 
 [metadata]
-content-hash = "ef32c851c8f942adf362b2774037848487a9bb4c17ff28970f051c15ba399e1a"
+content-hash = "572171d2a4a2127528a12e3eeab94025ecd1eace9f951b020776e684e3376160"
 python-versions = "^3.8"
 
 [metadata.files]
@@ -376,6 +388,10 @@ paramiko = [
 patchwork = [
     {file = "patchwork-1.0.1-py2.py3-none-any.whl", hash = "sha256:be5e8a52b9c604a853c9d841825b996ee084dfee3181f10e63a942d1fab2d699"},
     {file = "patchwork-1.0.1.tar.gz", hash = "sha256:c7fe2830dc3db21e51b9654772fdbe3f14cee6d42467bfceb3491891dd647b68"},
+]
+publicsuffixlist = [
+    {file = "publicsuffixlist-0.7.3-py2.py3-none-any.whl", hash = "sha256:e473828d0e884ccd415edb66b7843b378eef8323ac9bf6266582e76035f5acc8"},
+    {file = "publicsuffixlist-0.7.3.tar.gz", hash = "sha256:5bdb81cf9f75e4565ccfc5120be75c5c77c1d945aabb38e3777b21718b308850"},
 ]
 pycparser = [
     {file = "pycparser-2.20-py2.py3-none-any.whl", hash = "sha256:7582ad22678f0fcd81102833f60ef8d0e57288b6b5fb00323d101be910e35705"},

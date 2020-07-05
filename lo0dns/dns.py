@@ -1,13 +1,9 @@
 from .util import ensure_returns_deferred
 from twisted.names.dns import Query, RRHeader, Record_AAAA, AAAA, ALL_RECORDS, \
     Record_SOA, SOA
-from twisted.names.error import DomainError
 import typing as t
-from cityhash import CityHash32
-from ipaddress import IPv6Network
 from time import time
-
-NETWORK = IPv6Network('fd7f:1fa7:68ca:202f::/64')
+from .name_splitter import domain_to_ip
 
 class Resolver:
     def __init__(self, callback: t.Callable[[Query], t.Awaitable[t.List[RRHeader]]]):
@@ -42,23 +38,16 @@ SOA_OBJ = RRHeader(
 ))
 
 async def get_response(query: Query):
-    name = query.name.name
-    if name.endswith(b'.'): name = name[:-1]
-    if not name.endswith(b'.lo0.wtf'): raise DomainError()
     results = []
     if query.type in (AAAA, ALL_RECORDS):
-        name = name[:-8]
-        vhost, username = name.rsplit(b'.', 1)
-        vhost_hash = CityHash32(vhost)
-        username_hash = CityHash32(username)
-        ip = NETWORK[(username_hash << 32) + vhost_hash]
+        ip = domain_to_ip(query.name.name.decode('ascii'))
         results.append(RRHeader(
                     name=query.name.name,
                     type=AAAA,
                     ttl=60,
                     payload=Record_AAAA(address=str(ip).encode('ascii')),
                 ))
-    if query.type in (SOA, ALL_RECORDS) and name == b'':
+    if query.type in (SOA, ALL_RECORDS) and query.name.name == b'lo0.wtf':
         results.append(SOA_OBJ)
     return results
 

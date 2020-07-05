@@ -8,6 +8,7 @@ authors = ["Leigh Brenecki <l@leigh.net.au>"]
 python = "^3.8"
 twisted = "^20.3.0"
 cityhash = "^0.2.3"
+publicsuffixlist = "^0.7.3"
 
 [tool.poetry.dev-dependencies]
 fabric = "^2.5.0"
