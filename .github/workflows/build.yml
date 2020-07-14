@@ -8,8 +8,14 @@ jobs:
       - name: Check out
         uses: actions/checkout@v1
       - name: Build image
-        run: docker build .
+        run: docker build --pull . -t img
         env:
           DOCKER_BUILDKIT: "1"
+      - run: |
+       echo "${{ secrets.GITHUB_TOKEN }}" | docker login docker.pkg.github.com -u ${{ github.actor }} --password-stdin
+        IMAGE=docker.pkg.github.com/${{ github.repository }}/wodonga-dns:latest
+        echo "Pushing $IMAGE"
+        docker tag img $IMAGE
+        docker push $IMAGE
 
 
