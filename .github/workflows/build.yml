@@ -1,0 +1,15 @@
+name: Build
+on: [push]
+jobs:
+  test:
+    name: Docker image
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out
+        uses: actions/checkout@v1
+      - name: Build image
+        run: docker build .
+        env:
+          DOCKER_BUILDKIT: "1"
+
+
